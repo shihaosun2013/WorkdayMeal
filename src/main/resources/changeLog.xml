@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="shihaosun (generated)" id="1522609961105-1">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="uuid" type="INT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="first_name" remarks="first name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="last_name" remarks="last name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="nickname" remarks="nick name" type="VARCHAR(32)"/>
+            <column defaultValue="" name="password" remarks="password" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="email" remarks="email address" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="email_bind" remarks="bind with email" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="mobile" remarks="mobile number" type="VARCHAR(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="mobile_bind" remarks="bind with mobile number" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="avatar" remarks="avatar" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0" name="sex" remarks="sex" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0" name="register_ip" remarks="register ip" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="create_time" remarks="creation time" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_time" remarks="update time" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="last_login_time" remarks="last log in time" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="last_login_ip" remarks="last log in ip" type="BIGINT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="status" remarks="status?0-banned?1-active?2-pending activate" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="is_delete" remarks="0-deleted, 1-existing" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="exam_status" remarks="0-not audit; 1-auditing; 2-pass; 3-reject" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="area" remarks="deliver area" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip_code" remarks="deliver zip code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deliver_address_id" remarks="zip code" type="VARCHAR(10)"/>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
