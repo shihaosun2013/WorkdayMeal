@@ -2,8 +2,8 @@ package com.workdaymeals.resources;
 
 import com.codahale.metrics.annotation.Timed;
 import com.google.inject.Inject;
-import com.workdaymeals.model.User;
-import com.workdaymeals.persistence.UserDao;
+import com.workdaymeals.model.Guest;
+import com.workdaymeals.persistence.GuestDao;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,31 +14,21 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/user")
+@Path("/guest")
 @Singleton
 @Slf4j
 @AllArgsConstructor(access = AccessLevel.PRIVATE, onConstructor = @__({@Inject}))
-public class UserResource {
+public class GuestResource {
 
     private final Jdbi jdbi;
 
     @GET
     @Timed
-    @Path("/get/{username}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public User getUser(@PathParam("username") String username) {
-        return jdbi.withExtension(UserDao.class, dao -> {
-            return dao.getUserByUserName(username);
-        });
-    }
-
-    @GET
-    @Timed
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> getUsers() {
-        return jdbi.withExtension(UserDao.class, dao -> {
-            return dao.listUsers();
+    public List<Guest> getGuests() {
+        return jdbi.withExtension(GuestDao.class, dao -> {
+            return dao.listGuests();
         });
     }
 
@@ -47,11 +37,12 @@ public class UserResource {
     @Path("/save")
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes({MediaType.APPLICATION_JSON})
-    public String addUser(User user) {
+    public String addUser(Guest guest) {
         System.out.println(123);
-        jdbi.useExtension(UserDao.class, dao -> {
-            dao.insert(user);
+        jdbi.useExtension(GuestDao.class, dao -> {
+            dao.insert(guest);
         });
         return "Success!";
     }
+
 }

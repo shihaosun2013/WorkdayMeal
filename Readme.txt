@@ -112,3 +112,7 @@ https://xvik.github.io/dropwizard-guicey/4.1.0/getting-started/
 
     @SqlUpdate("INSERT INTO user(id, name) VALUES (:id, :name)")
     void insertNamed(@Bind("id") int id, @Bind("name") String name);
+
+    @SqlUpdate("INSERT INTO `user` (username, first_name, last_name, password, email, email_bind, mobile, mobile_bind, create_time, update_time, last_login_time, status, is_delete)\n" +
+                "VALUES ('happycora','shihao', 'shihao', 'afafadfa', 'shihaosun.usc@gmail.com', 1, '2133998198', 0,  now(), now(), now(), 1, 0)")
+        void insert(@BindBean User user);

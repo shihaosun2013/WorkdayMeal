@@ -4,7 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.workdaymeals.config.WorkdayMealsConfig;
-import com.workdaymeals.persistence.UserDao;
+import com.workdaymeals.resources.GuestResource;
 import com.workdaymeals.resources.UserResource;
 import io.dropwizard.jdbi3.JdbiFactory;
 import io.dropwizard.setup.Environment;
@@ -26,13 +26,8 @@ public class WorkdayMealsModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(UserResource.class).in(Singleton.class);
+        bind(GuestResource.class).in(Singleton.class);
     }
-
-    /*@Provides
-    @Singleton
-    public UserDao getUserDao() {
-        return new UserDao();
-    }*/
 
     @Provides
     @Singleton
