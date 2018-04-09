@@ -48,9 +48,20 @@ public class UserResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes({MediaType.APPLICATION_JSON})
     public String addUser(User user) {
-        System.out.println(123);
         jdbi.useExtension(UserDao.class, dao -> {
             dao.insert(user);
+        });
+        return "Success!";
+    }
+
+    @PUT
+    @Timed
+    @Path("/update")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes({MediaType.APPLICATION_JSON})
+    public String updateUser(User user) {
+        jdbi.useExtension(UserDao.class, dao -> {
+            dao.update(user);
         });
         return "Success!";
     }

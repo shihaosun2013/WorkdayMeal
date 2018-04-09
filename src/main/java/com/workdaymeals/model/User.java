@@ -12,49 +12,49 @@ import java.sql.Timestamp;
 @Builder(builderClassName = "Builder", toBuilder = true)
 @AllArgsConstructor
 public class User {
-    @NonNull
+//    @NonNull
     private long uuid;
-    @NonNull
+//    @NonNull
     private String username;
-    @NonNull
+//    @NonNull
     @ColumnName("first_name")
     private String firstName;
-    @NonNull
+//    @NonNull
     @ColumnName("last_name")
     private String lastName;
     private String nickname;
-    @NonNull
+//    @NonNull
     private String password;
-    @NonNull
+//    @NonNull
     private String email;
-    @NonNull
+//    @NonNull
     @ColumnName("email_bind")
-    private String emailBind;
-    @NonNull
+    private Boolean emailBind;
+//    @NonNull
     private String mobile;
-    @NonNull
+//    @NonNull
     @ColumnName("mobile_bind")
-    private String mobileBind;
+    private Boolean mobileBind;
     private String avatar;
     private String sex;
     private String registerIp;
-    @NonNull
+//    @NonNull
     @ColumnName("create_time")
     private Timestamp createTime;
-    @NonNull
+//    @NonNull
     @ColumnName("update_time")
     private Timestamp updateTime;
-    @NonNull
+//    @NonNull
     @ColumnName("last_login_time")
     private Timestamp lastLoginTime;
     @ColumnName("last_login_ip")
     private long lastLoginIp;
-    @NonNull
+//    @NonNull
     // status?0-banned?1-active?2-pending activate
     private long status;
-    @NonNull
+//    @NonNull
     @ColumnName("is_delete")
-    private long isDelete;
+    private Boolean isDelete;
     // 0-not audit; 1-auditing; 2-pass; 3-reject
     @ColumnName("exam_status")
     private long examStatus;

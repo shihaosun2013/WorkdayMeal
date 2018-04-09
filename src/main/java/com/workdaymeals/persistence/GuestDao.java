@@ -13,6 +13,9 @@ public interface GuestDao {
     @SqlUpdate("INSERT INTO guest values (:uuid, :deliverAddressId)")
     void insert(@BindBean Guest guest);
 
+    @SqlUpdate("INSERT INTO guest(uuid) values (:uuid)")
+    void insertId(@BindBean Guest guest);
+
     @SqlQuery("SELECT * FROM guest")
     @RegisterConstructorMapper(Guest.class)
     List<Guest> listGuests();

@@ -38,9 +38,20 @@ public class GuestResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes({MediaType.APPLICATION_JSON})
     public String addUser(Guest guest) {
-        System.out.println(123);
         jdbi.useExtension(GuestDao.class, dao -> {
             dao.insert(guest);
+        });
+        return "Success!";
+    }
+
+    @POST
+    @Timed
+    @Path("/post")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes({MediaType.APPLICATION_JSON})
+    public String addUserId(Guest guest) {
+        jdbi.useExtension(GuestDao.class, dao -> {
+            dao.insertId(guest);
         });
         return "Success!";
     }

@@ -2,10 +2,9 @@
 CREATE TABLE guest
 (
   uuid               INT UNSIGNED PRIMARY KEY,
-  deliver_address_id VARCHAR(10)                        NULL
+  deliver_address_id VARCHAR(10) DEFAULT ''          NOT NULL
   COMMENT 'deliver address id'
 )
   ENGINE = InnoDB;
 
-
-insert guest(uuid) values (1);
+INSERT guest (uuid) VALUES (1);
