@@ -3,6 +3,7 @@ package com.workdaymeals.app;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
+import com.workdaymeals.auth.ExampleAuthenticator;
 import com.workdaymeals.config.WorkdayMealsConfig;
 import com.workdaymeals.module.WorkdayMealsModule;
 import com.workdaymeals.resources.GuestResource;
@@ -24,6 +25,7 @@ public class WorkdayMealsApp extends Application<WorkdayMealsConfig> {
         Injector injector = Guice.createInjector(getModules(config, env));
         env.jersey().register(injector.getInstance(UserResource.class));
         env.jersey().register(injector.getInstance(GuestResource.class));
+        env.jersey().register(new BasicAuthProvider<>(new ExampleAuthenticator(), "SECURITY REALM"));
 
 /*        final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(env, config.getDataSourceFactory(), "mysql");

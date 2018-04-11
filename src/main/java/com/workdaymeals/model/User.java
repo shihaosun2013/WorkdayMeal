@@ -6,12 +6,14 @@ import lombok.Data;
 import lombok.NonNull;
 import org.jdbi.v3.core.mapper.reflect.ColumnName;
 
+import javax.security.auth.Subject;
+import java.security.Principal;
 import java.sql.Timestamp;
 
 @Data
 @Builder(builderClassName = "Builder", toBuilder = true)
 @AllArgsConstructor
-public class User {
+public class User implements Principal {
 //    @NonNull
     private long uuid;
 //    @NonNull
@@ -63,4 +65,10 @@ public class User {
     private String zipCode;
     @ColumnName("deliver_address_id")
     private String deliverAddressId;
+
+    @Override
+    public String getName() {
+        return username;
+    }
+
 }
