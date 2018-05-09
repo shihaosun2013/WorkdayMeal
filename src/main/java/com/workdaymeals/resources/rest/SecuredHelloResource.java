@@ -1,4 +1,4 @@
-package com.workdaymeals.resources;
+package com.workdaymeals.resources.rest;
 
 import com.workdaymeals.model.User;
 import io.dropwizard.auth.Auth;

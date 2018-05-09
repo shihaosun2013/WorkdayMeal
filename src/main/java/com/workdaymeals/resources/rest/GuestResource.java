@@ -1,7 +1,8 @@
-package com.workdaymeals.resources;
+package com.workdaymeals.resources.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import com.workdaymeals.model.Guest;
 import com.workdaymeals.persistence.GuestDao;
 import lombok.AccessLevel;
@@ -17,10 +18,15 @@ import java.util.List;
 @Path("/guest")
 @Singleton
 @Slf4j
-@AllArgsConstructor(access = AccessLevel.PRIVATE, onConstructor = @__({@Inject}))
+//@AllArgsConstructor(access = AccessLevel.PRIVATE, onConstructor = @__({@Inject}))
 public class GuestResource {
 
     private final Jdbi jdbi;
+
+    @Inject
+    public GuestResource(@Named("jdbi") Jdbi jdbi) {
+        this.jdbi = jdbi;
+    }
 
     @GET
     @Timed

@@ -32,6 +32,21 @@
    <artifactId>dropwizard-auth</artifactId>
    <version>${dropwizard.version}</version>
   </dependency>
+  <dependency>
+   <groupId>io.dropwizard</groupId>
+   <artifactId>dropwizard-views</artifactId>
+   <version>${dropwizard.version}</version>
+  </dependency>
+  <dependency>
+   <groupId>io.dropwizard</groupId>
+   <artifactId>dropwizard-views-freemarker</artifactId>
+   <version>${dropwizard.version}</version>
+  </dependency>
+  <dependency>
+   <groupId>io.dropwizard</groupId>
+   <artifactId>dropwizard-assets</artifactId>
+   <version>${dropwizard.version}</version>
+  </dependency>
   <!-- https://mvnrepository.com/artifact/io.dropwizard/dropwizard-jdbi -->
   <dependency>
    <groupId>io.dropwizard</groupId>
